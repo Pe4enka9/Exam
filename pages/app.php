@@ -27,22 +27,22 @@ if (!$_SESSION['user']) {
     <div class="block">
       <div class="elem num_app">
         <label>№ заявления</label>
-        <input type="number" name="id" />
+        <div><?= $_SESSION['app']['id'] ?></div>
       </div>
 
       <div class="elem gov_num">
         <label>Гос.номер</label>
-        <input type="text" name="govNumber" />
+        <div><?= $_SESSION['app']['govNumber'] ?></div>
       </div>
 
       <div class="elem description">
         <label>Описание нарушения</label>
-        <textarea name="description"></textarea>
+        <textarea readonly name="description"><?= $_SESSION['app']['description'] ?></textarea>
       </div>
 
       <div class="elem status">
         <label>Статус</label>
-        <input type="text" name="applicationStatus_id" />
+        <div><?= $_SESSION['app']['applicationStatus_id'] ?></div>
       </div>
     </div>
 

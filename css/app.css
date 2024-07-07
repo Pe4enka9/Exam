@@ -58,11 +58,13 @@ body {
     gap: 22px;
 }
 
-.elem input,
+.elem div,
 .elem textarea {
     height: 36px;
 
-    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     background-color: #fff;
 
@@ -70,23 +72,34 @@ body {
     border-radius: 10px;
 
     outline: none;
+
+    cursor: default;
 }
 
-.num_app input {
+.num_app div {
     width: 105px;
 }
 
-.gov_num input {
+.gov_num div {
     width: 148px;
 }
 
 .description textarea {
     width: 316px;
+    height: auto;
+
+    padding-left: 15px;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
 
     resize: none;
+    overflow: hidden;
 }
 
-.status input {
+.status div {
     width: 215px;
 }
 
