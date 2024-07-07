@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+}
+
+.newapp {
+    width: 823px;
+    height: 305px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #d9d9d9;
+
+    border: 1px solid #000;
+    border-radius: 50px;
+
+    position: relative;
+}
+
+.newapp h1 {
+    margin: 32px 0 49px 0;
+
+    font-weight: 700;
+    font-size: 37px;
+}
+
+.inp {
+    display: flex;
+    gap: 10px;
+}
+
+.inp_block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input,
+textarea {
+    height: 36px;
+
+    padding-left: 9px;
+
+    background-color: #fff;
+
+    border: 1px solid #767676;
+    border-radius: 10px;
+
+    resize: none;
+    outline: none;
+}
+
+textarea {
+    padding-top: 10px;
+}
+
+.govNumber_block input {
+    width: 176px;
+}
+
+.description_block textarea {
+    width: 275px;
+}
+
+a {
+    height: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #000;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+}
+
+.buttons {
+    display: flex;
+    gap: 158px;
+
+    position: absolute;
+    bottom: 38px;
+    right: 32px;
+}
+
+#new {
+    width: 266px;
+
+    background-color: rgba(125, 153, 225, 0.5);
+
+    border: 1px solid #4e6090;
+}
+
+#exit {
+    width: 85px;
+
+    background-color: rgba(226, 130, 130, 0.5);
+
+    border: 1px solid #A77979;
+}
