@@ -21,5 +21,5 @@ if (mysqli_num_rows($check_user) > 0) {
 } else {
     $_SESSION['error'] = 'Неверный логин или пароль';
 
-    header('Location: ../pages/index.php');
+    header('Location: ../index.php');
 }

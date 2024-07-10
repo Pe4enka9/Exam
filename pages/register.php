@@ -62,7 +62,7 @@ if ($_SESSION['user']) {
 
     <input type="submit" id="btn" value="Зарегистрироваться" />
 
-    <a id="auth" href="index.php">Авторизоваться</a>
+    <a id="auth" href="../index.php">Авторизоваться</a>
   </form>
 </body>
 

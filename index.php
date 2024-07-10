@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once '../connect.php';
+require_once 'connect.php';
 
 if ($_SESSION['user']) {
-  header('Location: app.php');
+  header('Location: pages/app.php');
 }
 ?>
 
@@ -16,12 +16,12 @@ if ($_SESSION['user']) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="css/main.css" />
   <title>Нарушениям.Нет</title>
 </head>
 
 <body>
-  <form action="../vendor/auth.php" method="post" class="auth">
+  <form action="vendor/auth.php" method="post" class="auth">
     <h1>Авторизация</h1>
 
     <div class="inp_block login_block">
@@ -36,7 +36,7 @@ if ($_SESSION['user']) {
 
     <input type="submit" id="btn" value="Войти" />
 
-    <a id="reg" href="register.php">Зарегистрироваться</a>
+    <a id="reg" href="pages/register.php">Зарегистрироваться</a>
 
     <span>
       <?php

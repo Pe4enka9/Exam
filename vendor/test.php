@@ -14,10 +14,3 @@ $_SESSION['app'] = [
     "description" => $apps['description'],
     "applicationStatus_id" => $apps['applicationStatus_id']
 ];
-?>
-
-<pre>
-    <?php
-    print_r($_SESSION['app']);
-    ?>
-</pre>
