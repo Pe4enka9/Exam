@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!$_SESSION['user']) {
+  header('Location: ../index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,13 +20,13 @@
 </head>
 
 <body>
-  <form action="" method="post" class="newapp">
+  <form action="../vendor/new_application.php" method="post" class="newapp">
     <h1>Формирование заявления</h1>
 
     <div class="inp">
       <div class="inp_block govNumber_block">
         <label for="govNumber">Гос.номер:</label>
-        <input type="text" name="govNumber" id="govNumber" />
+        <input type="text" name="govNumber" id="govNumber" autocomplete="off" />
       </div>
 
       <div class="inp_block description_block">
@@ -28,9 +36,18 @@
     </div>
 
     <div class="buttons">
-      <a id="new" href="#">Сформировать новое заявление</a>
+      <input type="submit" id="new" value="Сформировать новое заявление">
       <a id="exit" href="app.php">Назад</a>
     </div>
+
+    <?php
+    if ($_SESSION['confirm'] == 'Заявление успешно добавлено!') {
+      echo "<span id=\"confirm\">" . $_SESSION['confirm'] . "</span>";
+    } else {
+      echo "<span id=\"confirm\" style=\"color: #f00\">" . $_SESSION['confirm'] . "</span>";
+    }
+    unset($_SESSION['confirm']);
+    ?>
   </form>
 </body>
 

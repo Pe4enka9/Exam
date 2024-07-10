@@ -104,9 +104,18 @@ a {
 #new {
     width: 266px;
 
+    padding: 0;
+
     background-color: rgba(125, 153, 225, 0.5);
 
     border: 1px solid #4e6090;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+
+    cursor: pointer;
 }
 
 #exit {
@@ -115,4 +124,8 @@ a {
     background-color: rgba(226, 130, 130, 0.5);
 
     border: 1px solid #A77979;
+}
+
+#confirm {
+    color: #009900;
 }
