@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once '../vendor/output.php';
+
 if (!$_SESSION['user']) {
   header('Location: ../index.php');
 }
@@ -27,22 +29,44 @@ if (!$_SESSION['user']) {
     <div class="block">
       <div class="elem num_app">
         <label>№ заявления</label>
-        <div><?= $_SESSION['app']['id'] ?></div>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          echo "<div>{$app['id']}</div>";
+        }
+        ?>
       </div>
 
       <div class="elem gov_num">
         <label>Гос.номер</label>
-        <div><?= $_SESSION['app']['govNumber'] ?></div>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          echo "<div>{$app['govNumber']}</div>";
+        }
+        ?>
       </div>
 
       <div class="elem description">
         <label>Описание нарушения</label>
-        <textarea readonly name="description"><?= $_SESSION['app']['description'] ?></textarea>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          echo "<textarea readonly name=\"description\">{$app['description']}</textarea>";
+        }
+        ?>
       </div>
 
       <div class="elem status">
         <label>Статус</label>
-        <div><?= $_SESSION['app']['applicationStatus_id'] ?></div>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          if ($app['applicationStatus_id'] == 1) {
+            echo "<div>Новое</div>";
+          } else if ($app['applicationStatus_id'] == 2) {
+            echo "<div>Подтверждено</div>";
+          } else {
+            echo "<div>Отклонено</div>";
+          }
+        }
+        ?>
       </div>
     </div>
 
