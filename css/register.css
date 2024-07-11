@@ -19,7 +19,7 @@ body {
 
 .register {
     width: 512px;
-    height: 834px;
+    height: auto;
 
     display: flex;
     flex-direction: column;
@@ -86,5 +86,15 @@ input[type="submit"] {
 }
 
 #auth {
+    padding-bottom: 26px;
+
     color: #00f;
+}
+
+.error {
+    max-width: 244px;
+
+    color: #fa0000;
+
+    font-size: 13px;
 }
