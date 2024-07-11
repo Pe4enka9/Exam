@@ -10,6 +10,13 @@ $check_user = mysqli_query($connect, "SELECT * FROM `User` WHERE BINARY `login` 
 $user = mysqli_fetch_assoc($check_user);
 
 if ($user['isAdmin'] == 1) {
+    $_SESSION['user'] = [
+        "id" => $user['id'],
+        "name" => $user['name'],
+        "lastName" => $user['lastName'],
+        "surname" => $user['surname'],
+    ];
+    
     header('Location: ../pages/admin.php');
 } else if (mysqli_num_rows($check_user) > 0) {
     $_SESSION['user'] = [

@@ -6,6 +6,7 @@ require_once '../connect.php';
 $query = mysqli_query($connect, "SELECT * FROM `Application`");
 
 $app = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
 ?>
 
 <pre>
