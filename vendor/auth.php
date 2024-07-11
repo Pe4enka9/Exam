@@ -3,7 +3,7 @@ session_start();
 require_once '../connect.php';
 
 $login = $_POST['login'];
-$pass = $_POST['pass'];
+$pass = md5($_POST['pass']);
 
 $check_user = mysqli_query($connect, "SELECT * FROM `User` WHERE BINARY `login` = '$login' AND BINARY `pass` = '$pass'");
 
