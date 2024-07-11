@@ -5,12 +5,15 @@ require_once '../connect.php';
 
 $query = mysqli_query($connect, "SELECT * FROM `Application`");
 
-$app = mysqli_fetch_all($query, MYSQLI_ASSOC);
+$apps = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-?>
-
-<pre>
-    <?php
-    print_r($app);
-    ?>
-</pre>
+$_SESSION['app'] = [];
+foreach ($apps as $app) {
+    $_SESSION['app'][] = [
+        "id" => $app['id'],
+        "user_id" => $app['user_id'],
+        "govNumber" => $app['govNumber'],
+        "description" => $app['description'],
+        "applicationStatus_id" => $app['applicationStatus_id']
+    ];
+}

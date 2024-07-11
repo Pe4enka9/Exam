@@ -3,7 +3,9 @@ session_start();
 require_once 'connect.php';
 
 if ($_SESSION['user']) {
-  header('Location: pages/app.php');
+  header('Location: ./pages/app.php');
+} else if ($_SESSION['admin']) {
+  header('Location: ./pages/admin.php');
 }
 ?>
 

@@ -97,7 +97,7 @@ body {
 .description textarea {
     width: 316px;
 
-    padding-left: 15px;
+    padding: 5px 0 0 15px;
 
     font-family: "Inter", sans-serif;
     font-weight: 400;
@@ -110,6 +110,8 @@ body {
 
 .status select {
     width: 215px;
+
+    padding-left: 10px;
 }
 
 a {
@@ -127,6 +129,38 @@ a {
     text-decoration: none;
 }
 
+#success {
+    color: #009900;
+}
+
+.buttons {
+    width: calc(50% + 64px);
+
+    display: flex;
+    justify-content: space-between;
+
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+}
+
+#btn {
+    width: 224px;
+    height: 36px;
+
+    background-color: rgba(125, 153, 225, 0.5);
+
+    border: 1px solid #4e6090;
+    border-radius: 10px;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+
+    cursor: pointer;
+}
+
 #exit {
     width: 85px;
     height: 36px;
@@ -134,8 +168,4 @@ a {
     background-color: rgba(226, 130, 130, 0.5);
 
     border: 1px solid #a77979;
-
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
 }

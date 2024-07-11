@@ -2,7 +2,9 @@
 session_start();
 
 if ($_SESSION['user']) {
-  header('Location: app.php');
+  header('Location: ./app.php');
+} else if ($_SESSION['admin']) {
+  header('Location: ./admin.php');
 }
 ?>
 

@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+require_once '../vendor/admin_output.php';
+
+if ($_SESSION['user']) {
+  header('Location: ./app.php');
+} else if (!$_SESSION['admin']) {
+  header('Location: ../index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,43 +24,74 @@
 </head>
 
 <body>
-  <div class="admin">
+  <form action="../vendor/update_app.php" method="post" class="admin">
     <h2></h2>
     <h1>Панель администратора</h1>
 
     <div class="block">
       <div class="elem num_app">
         <label>№ заявления</label>
-        <div></div>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          echo "<input type=\"hidden\" name=\"id[]\" value=\"{$app['id']}\">";
+          echo "<div>{$app['id']}</div>";
+        }
+        ?>
       </div>
 
       <div class="elem full_name">
         <label>ФИО</label>
-        <div></div>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          echo "<div>{$app['user_id']}</div>";
+        }
+        ?>
       </div>
 
       <div class="elem gov_num">
         <label>Гос.номер</label>
-        <div></div>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          echo "<div>{$app['govNumber']}</div>";
+        }
+        ?>
       </div>
 
       <div class="elem description">
         <label>Описание нарушения</label>
-        <textarea readonly name="description"></textarea>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          echo "<textarea readonly name=\"description\">{$app['description']}</textarea>";
+        }
+        ?>
       </div>
 
       <div class="elem status">
         <label>Статус</label>
-        <select name="applicationStatus_id">
-          <option value="1">Новое</option>
-          <option value="2">Подтверждено</option>
-          <option value="3">Отклонено</option>
-        </select>
+        <?php
+        foreach ($_SESSION['app'] as $app) {
+          echo "<select name=\"applicationStatus_id[]\">";
+          echo "<option value=\"1\"" . ($app['applicationStatus_id'] == 1 ? ' selected' : '') . ">Новое</option>";
+          echo "<option value=\"2\"" . ($app['applicationStatus_id'] == 2 ? ' selected' : '') . ">Подтверждено</option>";
+          echo "<option value=\"3\"" . ($app['applicationStatus_id'] == 3 ? ' selected' : '') . ">Отклонено</option>";
+          echo "</select>";
+        }
+        ?>
       </div>
     </div>
 
-    <a id="exit" href="../vendor/logout.php">Выйти</a>
-  </div>
+    <div id="success">
+      <?php
+      echo $_SESSION['success'];
+      unset($_SESSION['success']);
+      ?>
+    </div>
+
+    <div class="buttons">
+      <input type="submit" id="btn" value="Изменить">
+      <a id="exit" href="../vendor/logout.php">Выйти</a>
+    </div>
+  </form>
 </body>
 
 </html>
