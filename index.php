@@ -28,12 +28,12 @@ if ($_SESSION['user']) {
 
     <div class="inp_block login_block">
       <label for="login">Логин</label>
-      <input type="text" name="login" id="login" autocomplete="off" />
+      <input type="text" name="login" id="login" autocomplete="off" placeholder="Введите логин" />
     </div>
 
     <div class="inp_block pass_block">
       <label for="pass">Пароль</label>
-      <input type="password" name="pass" id="pass" autocomplete="off" />
+      <input type="password" name="pass" id="pass" autocomplete="off" placeholder="Введите пароль" />
     </div>
 
     <input type="submit" id="btn" value="Войти" />
