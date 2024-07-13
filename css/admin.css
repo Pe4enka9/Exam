@@ -5,11 +5,10 @@
 }
 
 body {
-    height: 100vh;
+    margin-top: 50px;
 
     display: flex;
     justify-content: center;
-    align-items: center;
 
     font-family: "Inter", sans-serif;
     font-weight: 400;
@@ -18,8 +17,7 @@ body {
 }
 
 .admin {
-    width: 1105px;
-    height: 431px;
+    width: 1200px;
 
     display: flex;
     flex-direction: column;
@@ -29,13 +27,9 @@ body {
 
     border: 1px solid #000;
     border-radius: 50px;
-
-    position: relative;
 }
 
 .admin h1 {
-    margin: 12px 0 39px 0;
-
     font-weight: 700;
     font-size: 37px;
 }
@@ -47,6 +41,8 @@ body {
 }
 
 .block {
+    padding-bottom: 32px;
+
     display: flex;
     gap: 10px;
 }
@@ -83,7 +79,7 @@ body {
 }
 
 .full_name div {
-    width: 216px;
+    width: 300px;
 }
 
 .num_app div {
@@ -130,22 +126,24 @@ a {
 }
 
 #success {
+    margin-top: -20px;
+
     color: #009900;
 }
 
 .buttons {
-    width: calc(50% + 64px);
+    width: 100%;
+
+    margin: 12px 0 39px 0;
+    padding: 0 32px;
 
     display: flex;
     justify-content: space-between;
-
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
+    align-items: center;
 }
 
 #btn {
-    width: 224px;
+    width: 85px;
     height: 36px;
 
     background-color: rgba(125, 153, 225, 0.5);
@@ -168,4 +166,13 @@ a {
     background-color: rgba(226, 130, 130, 0.5);
 
     border: 1px solid #a77979;
+}
+
+.select {
+    background: url('../icons/select.svg') no-repeat;
+    background-position: right 6px bottom 50%;
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 }

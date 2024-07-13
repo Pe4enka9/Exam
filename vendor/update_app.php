@@ -11,7 +11,7 @@ for ($i = 0; $i < mysqli_num_rows($selectAll); $i++) {
 }
 
 if ($query) {
-    $_SESSION['success'] = 'Успешно изменено!';
+    $_SESSION['success'] = "<span id=\"success\">Успешно изменено!</span>";
 }
 
 header('Location: ../pages/admin.php');

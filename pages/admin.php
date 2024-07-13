@@ -25,8 +25,16 @@ if ($_SESSION['user']) {
 
 <body>
   <form action="../vendor/update_app.php" method="post" class="admin">
-    <h2></h2>
-    <h1>Панель администратора</h1>
+    <div class="buttons">
+      <input type="submit" id="btn" value="Изменить">
+      <h1>Панель администратора</h1>
+      <a id="exit" href="../vendor/logout.php">Выйти</a>
+    </div>
+
+    <?php
+    echo $_SESSION['success'];
+    unset($_SESSION['success']);
+    ?>
 
     <div class="block">
       <div class="elem num_app">
@@ -42,9 +50,12 @@ if ($_SESSION['user']) {
       <div class="elem full_name">
         <label>ФИО</label>
         <?php
-        foreach ($_SESSION['app'] as $app) {
-          echo "<div>{$app['user_id']}</div>";
+        for ($i = 0; $i < count($user_fullName); $i++) { 
+          echo "<div>{$user_fullName[$i]}</div>";
         }
+        // foreach ($_SESSION['app'] as $app) {
+        //   echo "<div>{$app['user_id']}</div>";
+        // }
         ?>
       </div>
 
@@ -70,7 +81,7 @@ if ($_SESSION['user']) {
         <label>Статус</label>
         <?php
         foreach ($_SESSION['app'] as $app) {
-          echo "<select name=\"applicationStatus_id[]\">";
+          echo "<select class=\"select\" name=\"applicationStatus_id[]\">";
           echo "<option value=\"1\"" . ($app['applicationStatus_id'] == 1 ? ' selected' : '') . ">Новое</option>";
           echo "<option value=\"2\"" . ($app['applicationStatus_id'] == 2 ? ' selected' : '') . ">Подтверждено</option>";
           echo "<option value=\"3\"" . ($app['applicationStatus_id'] == 3 ? ' selected' : '') . ">Отклонено</option>";
@@ -78,18 +89,6 @@ if ($_SESSION['user']) {
         }
         ?>
       </div>
-    </div>
-
-    <div id="success">
-      <?php
-      echo $_SESSION['success'];
-      unset($_SESSION['success']);
-      ?>
-    </div>
-
-    <div class="buttons">
-      <input type="submit" id="btn" value="Изменить">
-      <a id="exit" href="../vendor/logout.php">Выйти</a>
     </div>
   </form>
 </body>
