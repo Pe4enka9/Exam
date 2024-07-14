@@ -53,9 +53,6 @@ if ($_SESSION['user']) {
         for ($i = 0; $i < count($user_fullName); $i++) { 
           echo "<div>{$user_fullName[$i]}</div>";
         }
-        // foreach ($_SESSION['app'] as $app) {
-        //   echo "<div>{$app['user_id']}</div>";
-        // }
         ?>
       </div>
 
@@ -72,7 +69,7 @@ if ($_SESSION['user']) {
         <label>Описание нарушения</label>
         <?php
         foreach ($_SESSION['app'] as $app) {
-          echo "<textarea readonly name=\"description\">{$app['description']}</textarea>";
+          echo "<div name=\"description\">{$app['description']}</div>";
         }
         ?>
       </div>

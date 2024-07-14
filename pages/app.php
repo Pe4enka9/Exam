@@ -24,7 +24,12 @@ if (!$_SESSION['user']) {
 <body>
   <div class="app">
     <h2><?= $_SESSION['user']['lastName'] . " " . $_SESSION['user']['name'] . " " . $_SESSION['user']['surname'] ?></h2>
-    <h1>Заявления</h1>
+
+    <div class="buttons">
+      <a id="new" href="newapp.php">Написать новое заявление</a>
+      <h1>Заявления</h1>
+      <a id="exit" href="../vendor/logout.php">Выйти</a>
+    </div>
 
     <div class="block">
       <div class="elem num_app">
@@ -49,7 +54,7 @@ if (!$_SESSION['user']) {
         <label>Описание нарушения</label>
         <?php
         foreach ($_SESSION['app'] as $app) {
-          echo "<textarea readonly name=\"description\">{$app['description']}</textarea>";
+          echo "<div name=\"description\">{$app['description']}</div>";
         }
         ?>
       </div>
@@ -68,11 +73,6 @@ if (!$_SESSION['user']) {
         }
         ?>
       </div>
-    </div>
-
-    <div class="buttons">
-      <a id="new" href="newapp.php">Написать новое заявление</a>
-      <a id="exit" href="../vendor/logout.php">Выйти</a>
     </div>
   </div>
 </body>

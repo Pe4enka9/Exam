@@ -5,11 +5,8 @@
 }
 
 body {
-    height: 100vh;
-
     display: flex;
     justify-content: center;
-    align-items: center;
 
     font-family: "Inter", sans-serif;
     font-weight: 400;
@@ -18,8 +15,9 @@ body {
 }
 
 .app {
-    width: 879px;
-    height: 431px;
+    width: 900px;
+
+    margin-top: 50px;
 
     display: flex;
     flex-direction: column;
@@ -34,8 +32,6 @@ body {
 }
 
 .app h1 {
-    margin: 12px 0 39px 0;
-
     font-weight: 700;
     font-size: 37px;
 }
@@ -47,6 +43,8 @@ body {
 }
 
 .block {
+    padding-bottom: 32px;
+
     display: flex;
     gap: 10px;
 }
@@ -58,9 +56,8 @@ body {
     gap: 22px;
 }
 
-.elem div,
-.elem textarea {
-    height: 36px;
+.elem div {
+    min-height: 36px;
 
     display: flex;
     justify-content: center;
@@ -84,18 +81,14 @@ body {
     width: 148px;
 }
 
-.description textarea {
+.description div {
     width: 316px;
 
-    padding-left: 15px;
+    padding: 7px 10px;
 
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: #000;
+    display: block;
 
-    resize: none;
-    overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .status div {
@@ -118,19 +111,20 @@ a {
 }
 
 .buttons {
-    width: calc(50% + 64px);
+    width: 100%;
+
+    margin: 12px 0 39px 0;
+    padding: 0 32px;
 
     display: flex;
     justify-content: space-between;
-
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
+    align-items: center;
 }
 
 #new {
-    width: 224px;
-    height: 36px;
+    width: 100px;
+
+    padding: 10px;
 
     background-color: rgba(125, 153, 225, 0.5);
 
