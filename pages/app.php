@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-require_once '../vendor/output.php';
-
-if (!$_SESSION['user']) {
+if (!isset($_SESSION['user'])) {
   header('Location: ../index.php');
 }
+
+require_once '../vendor/output.php';
 ?>
 
 <!DOCTYPE html>
@@ -31,50 +31,43 @@ if (!$_SESSION['user']) {
       <a id="exit" href="../vendor/logout.php">Выйти</a>
     </div>
 
-    <div class="block">
-      <div class="elem num_app">
-        <label>№ заявления</label>
-        <?php
-        foreach ($_SESSION['app'] as $app) {
-          echo "<div>{$app['id']}</div>";
-        }
-        ?>
-      </div>
-
-      <div class="elem gov_num">
-        <label>Гос.номер</label>
-        <?php
-        foreach ($_SESSION['app'] as $app) {
-          echo "<div>{$app['govNumber']}</div>";
-        }
-        ?>
-      </div>
-
-      <div class="elem description">
-        <label>Описание нарушения</label>
-        <?php
-        foreach ($_SESSION['app'] as $app) {
-          echo "<div name=\"description\">{$app['description']}</div>";
-        }
-        ?>
-      </div>
-
-      <div class="elem status">
-        <label>Статус</label>
-        <?php
-        foreach ($_SESSION['app'] as $app) {
-          if ($app['applicationStatus_id'] == 1) {
-            echo "<div>Новое</div>";
-          } else if ($app['applicationStatus_id'] == 2) {
-            echo "<div>Подтверждено</div>";
-          } else {
-            echo "<div>Отклонено</div>";
-          }
-        }
-        ?>
-      </div>
+    <div class="title">
+      <label id="title_num">№ заявления</label>
+      <label id="title_govNumber">Гос.номер</label>
+      <label id="title_description">Описание нарушения</label>
+      <label id="title_status">Статус</label>
     </div>
+
+    <?php
+    foreach ($_SESSION['app'] as $app) {
+      echo "<div class=\"block\">";
+      echo "<div class=\"elem num_app\">";
+      echo "<div>{$app['id']}</div>";
+      echo "</div>";
+
+      echo "<div class=\"elem gov_num\">";
+      echo "<div>{$app['govNumber']}</div>";
+      echo "</div>";
+
+      echo "<div class=\"elem description\">";
+      echo "<div>{$app['description']}</div>";
+      echo "</div>";
+
+      echo "<div class=\"elem status\">";
+      if ($app['applicationStatus_id'] == 1) {
+        echo "<div>Новое</div>";
+      } else if ($app['applicationStatus_id'] == 2) {
+        echo "<div>Подтверждено</div>";
+      } else {
+        echo "<div>Отклонено</div>";
+      }
+      echo "</div>";
+      echo "</div>";
+    }
+    ?>
   </div>
+
+  <script src="../js/app.js"></script>
 </body>
 
 </html>

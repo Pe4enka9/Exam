@@ -2,9 +2,9 @@
 session_start();
 require_once 'connect.php';
 
-if ($_SESSION['user']) {
+if (isset($_SESSION['user'])) {
   header('Location: ./pages/app.php');
-} else if ($_SESSION['admin']) {
+} else if (isset($_SESSION['admin'])) {
   header('Location: ./pages/admin.php');
 }
 ?>
@@ -18,7 +18,7 @@ if ($_SESSION['user']) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="./css/main.css" />
   <title>Нарушениям.Нет</title>
 </head>
 
@@ -42,8 +42,10 @@ if ($_SESSION['user']) {
 
     <span>
       <?php
-      echo $_SESSION['error'];
-      unset($_SESSION['error']);
+      if (isset($_SESSION['error'])) {
+        echo $_SESSION['error'];
+        unset($_SESSION['error']);
+      }
       ?>
     </span>
   </form>

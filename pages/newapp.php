@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!$_SESSION['user']) {
+if (!isset($_SESSION['user'])) {
   header('Location: ../index.php');
 }
 ?>
@@ -41,12 +41,14 @@ if (!$_SESSION['user']) {
     </div>
 
     <?php
-    if ($_SESSION['confirm'] == 'Заявление успешно добавлено!') {
-      echo "<span id=\"confirm\">" . $_SESSION['confirm'] . "</span>";
-    } else {
-      echo "<span id=\"confirm\" style=\"color: #f00\">" . $_SESSION['confirm'] . "</span>";
+    if (isset($_SESSION['confirm'])) {
+      if ($_SESSION['confirm'] == 'Заявление успешно добавлено!') {
+        echo "<span id=\"confirm\">" . $_SESSION['confirm'] . "</span>";
+      } else {
+        echo "<span id=\"confirm\" style=\"color: #f00\">" . $_SESSION['confirm'] . "</span>";
+      }
+      unset($_SESSION['confirm']);
     }
-    unset($_SESSION['confirm']);
     ?>
   </form>
 </body>

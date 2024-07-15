@@ -3,9 +3,9 @@ session_start();
 
 require_once '../vendor/admin_output.php';
 
-if ($_SESSION['user']) {
+if (isset($_SESSION['user'])) {
   header('Location: ./app.php');
-} else if (!$_SESSION['admin']) {
+} else if (!isset($_SESSION['admin'])) {
   header('Location: ../index.php');
 }
 ?>
@@ -32,8 +32,10 @@ if ($_SESSION['user']) {
     </div>
 
     <?php
-    echo $_SESSION['success'];
-    unset($_SESSION['success']);
+    if (isset($_SESSION['success'])) {
+      echo $_SESSION['success'];
+      unset($_SESSION['success']);
+    }
     ?>
 
     <div class="block">
@@ -50,7 +52,7 @@ if ($_SESSION['user']) {
       <div class="elem full_name">
         <label>ФИО</label>
         <?php
-        for ($i = 0; $i < count($user_fullName); $i++) { 
+        for ($i = 0; $i < count($user_fullName); $i++) {
           echo "<div>{$user_fullName[$i]}</div>";
         }
         ?>
@@ -79,7 +81,7 @@ if ($_SESSION['user']) {
         <?php
         foreach ($_SESSION['app'] as $app) {
           echo "<select class=\"select\" name=\"applicationStatus_id[]\">";
-          echo "<option value=\"1\"" . ($app['applicationStatus_id'] == 1 ? ' selected' : '') . ">Новое</option>";
+          echo "<option hidden value=\"1\"" . ($app['applicationStatus_id'] == 1 ? ' selected' : '') . ">Новое</option>";
           echo "<option value=\"2\"" . ($app['applicationStatus_id'] == 2 ? ' selected' : '') . ">Подтверждено</option>";
           echo "<option value=\"3\"" . ($app['applicationStatus_id'] == 3 ? ' selected' : '') . ">Отклонено</option>";
           echo "</select>";

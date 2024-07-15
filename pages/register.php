@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if ($_SESSION['user']) {
+if (isset($_SESSION['user'])) {
   header('Location: ./app.php');
-} else if ($_SESSION['admin']) {
+} else if (isset($_SESSION['admin'])) {
   header('Location: ./admin.php');
 }
 ?>
@@ -31,8 +31,10 @@ if ($_SESSION['user']) {
         <input type="text" name="login" id="login" autocomplete="off" placeholder="Введите логин" />
         <span class="error" id="loginError">
           <?php
-          echo $_SESSION['loginError'];
-          unset($_SESSION['loginError']);
+          if (isset($_SESSION['loginError'])) {
+            echo $_SESSION['loginError'];
+            unset($_SESSION['loginError']);
+          }
           ?>
         </span>
       </div>

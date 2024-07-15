@@ -37,15 +37,18 @@ body {
 }
 
 .app h2 {
-    margin-top: 10px;
+    padding-top: 10px;
 
     color: #4e4e4e;
 }
 
 .block {
-    padding-bottom: 32px;
+    width: 100%;
+
+    padding: 0 32px 22px 32px;
 
     display: flex;
+    justify-content: space-between;
     gap: 10px;
 }
 
@@ -113,8 +116,7 @@ a {
 .buttons {
     width: 100%;
 
-    margin: 12px 0 39px 0;
-    padding: 0 32px;
+    padding: 12px 32px 39px 32px;
 
     display: flex;
     justify-content: space-between;
@@ -138,4 +140,17 @@ a {
     background-color: rgba(226, 130, 130, 0.5);
 
     border: 1px solid #a77979;
+}
+
+.title {
+    width: 100%;
+
+    padding: 0 32px 22px 32px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    text-align: center;
 }

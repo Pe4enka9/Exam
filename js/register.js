@@ -7,16 +7,16 @@ const surname = document.getElementById("surname");
 const tel = document.getElementById("tel");
 const email = document.getElementById("email");
 
-// login.addEventListener("input", () => {
-//   const loginError = document.getElementById("loginError");
+login.addEventListener("input", () => {
+  const loginError = document.getElementById("loginError");
 
-//   if (login.value.length < 6 || login.value.length > 18) {
-//     loginError.textContent =
-//       "Длина должна быть не менее 6 и не более 18 символов";
-//   } else {
-//     loginError.textContent = "";
-//   }
-// });
+  if (login.value.length < 6 || login.value.length > 18) {
+    loginError.textContent =
+      "Длина должна быть не менее 6 и не более 18 символов";
+  } else {
+    loginError.textContent = "";
+  }
+});
 
 password.addEventListener("input", () => {
   const passwordError = document.getElementById("passwordError");
