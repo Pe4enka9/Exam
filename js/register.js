@@ -108,3 +108,14 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
   }
 });
+
+const passControl = document.querySelector(".password_control");
+passControl.addEventListener("click", () => {
+  if (passControl.classList.contains("view")) {
+    passControl.classList.remove("view");
+    password.setAttribute("type", "password");
+  } else {
+    passControl.classList.add("view");
+    password.setAttribute("type", "text");
+  }
+});

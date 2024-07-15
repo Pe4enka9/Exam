@@ -42,6 +42,7 @@ if (isset($_SESSION['user'])) {
       <div class="inp_block pass_block">
         <label for="pass">Пароль</label>
         <input type="password" name="pass" id="pass" autocomplete="off" placeholder="Введите пароль" />
+        <a href="#" class="password_control"></a>
         <span class="error" id="passwordError"></span>
       </div>
 
