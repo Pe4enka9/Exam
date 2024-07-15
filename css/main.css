@@ -59,6 +59,8 @@ body {
 
 .pass_block {
     margin-bottom: 57px;
+
+    position: relative;
 }
 
 input[type="text"],
@@ -93,4 +95,21 @@ input[type="submit"] {
 
 span {
     color: #f00;
+}
+
+.password_control {
+    width: 20px;
+    height: 20px;
+
+    background: url('../icons/eye_password_show.svg') no-repeat;
+    background-size: 20px;
+
+    position: absolute;
+    right: 7px;
+    bottom: 5px;
+}
+
+.view {
+    background: url('../icons/eye_password_hide.svg') no-repeat;
+    background-size: 20px;
 }
