@@ -19,7 +19,6 @@ body {
 
 .newapp {
     width: 823px;
-    height: 305px;
 
     display: flex;
     flex-direction: column;
@@ -41,6 +40,8 @@ body {
 }
 
 .inp {
+    margin-bottom: 143px;
+
     display: flex;
     gap: 10px;
 }
@@ -53,7 +54,7 @@ body {
 
 input,
 textarea {
-    height: 36px;
+    min-height: 36px;
 
     padding-left: 9px;
 
@@ -62,12 +63,7 @@ textarea {
     border: 1px solid #767676;
     border-radius: 10px;
 
-    resize: none;
     outline: none;
-}
-
-textarea {
-    padding-top: 10px;
 }
 
 .govNumber_block input {
@@ -76,6 +72,16 @@ textarea {
 
 .description_block textarea {
     width: 275px;
+
+    padding: 5px 10px;
+
+    resize: none;
+    overflow: hidden;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
 }
 
 a {

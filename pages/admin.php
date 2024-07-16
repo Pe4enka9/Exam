@@ -38,6 +38,10 @@ if (isset($_SESSION['user'])) {
     }
     ?>
 
+    <?php
+    foreach ($_SESSION['app'] as $app) {
+    }
+    ?>
     <div class="block">
       <div class="elem num_app">
         <label>№ заявления</label>

@@ -51,6 +51,8 @@ if (!isset($_SESSION['user'])) {
     }
     ?>
   </form>
+
+  <script src="../js/newapp.js"></script>
 </body>
 
 </html>

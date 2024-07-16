@@ -87,6 +87,11 @@ input[type="submit"] {
     color: #000;
 
     cursor: pointer;
+    transition: .2s background-color ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(62, 189, 16);
 }
 
 #reg {
