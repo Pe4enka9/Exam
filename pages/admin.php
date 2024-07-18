@@ -38,61 +38,42 @@ if (isset($_SESSION['user'])) {
     }
     ?>
 
+    <label>№ заявления</label>
+    <label>ФИО</label>
+    <label>Гос.номер</label>
+    <label>Описание нарушения</label>
+    <label>Статус</label>
+
     <?php
     foreach ($_SESSION['app'] as $app) {
+      echo '<div class="block">';
+      echo '<div class="elem num_app">';
+      echo '<input type="hidden" name="id[]" value="' . $app['id'] . '">';
+      echo "<div>{$app['id']}</div>";
+      echo '</div>';
+
+      echo '<div class="elem full_name">';
+      echo "<div>{$app['user_fullName']}</div>";
+      echo '</div>';
+
+      echo '<div class="elem gov_num">';
+      echo "<div>{$app['govNumber']}</div>";
+      echo '</div>';
+
+      echo '<div class="elem description">';
+      echo "<div name=\"description\">{$app['description']}</div>";
+      echo '</div>';
+
+      echo '<div class="elem status">';
+      echo "<select class=\"select\" name=\"applicationStatus_id[]\">";
+      echo "<option hidden value=\"1\"" . ($app['applicationStatus_id'] == 1 ? ' selected' : '') . ">Новое</option>";
+      echo "<option value=\"2\"" . ($app['applicationStatus_id'] == 2 ? ' selected' : '') . ">Подтверждено</option>";
+      echo "<option value=\"3\"" . ($app['applicationStatus_id'] == 3 ? ' selected' : '') . ">Отклонено</option>";
+      echo "</select>";
+      echo '</div>';
+      echo '</div>';
     }
     ?>
-    <div class="block">
-      <div class="elem num_app">
-        <label>№ заявления</label>
-        <?php
-        foreach ($_SESSION['app'] as $app) {
-          echo "<input type=\"hidden\" name=\"id[]\" value=\"{$app['id']}\">";
-          echo "<div>{$app['id']}</div>";
-        }
-        ?>
-      </div>
-
-      <div class="elem full_name">
-        <label>ФИО</label>
-        <?php
-        for ($i = 0; $i < count($user_fullName); $i++) {
-          echo "<div>{$user_fullName[$i]}</div>";
-        }
-        ?>
-      </div>
-
-      <div class="elem gov_num">
-        <label>Гос.номер</label>
-        <?php
-        foreach ($_SESSION['app'] as $app) {
-          echo "<div>{$app['govNumber']}</div>";
-        }
-        ?>
-      </div>
-
-      <div class="elem description">
-        <label>Описание нарушения</label>
-        <?php
-        foreach ($_SESSION['app'] as $app) {
-          echo "<div name=\"description\">{$app['description']}</div>";
-        }
-        ?>
-      </div>
-
-      <div class="elem status">
-        <label>Статус</label>
-        <?php
-        foreach ($_SESSION['app'] as $app) {
-          echo "<select class=\"select\" name=\"applicationStatus_id[]\">";
-          echo "<option hidden value=\"1\"" . ($app['applicationStatus_id'] == 1 ? ' selected' : '') . ">Новое</option>";
-          echo "<option value=\"2\"" . ($app['applicationStatus_id'] == 2 ? ' selected' : '') . ">Подтверждено</option>";
-          echo "<option value=\"3\"" . ($app['applicationStatus_id'] == 3 ? ' selected' : '') . ">Отклонено</option>";
-          echo "</select>";
-        }
-        ?>
-      </div>
-    </div>
   </form>
 </body>
 

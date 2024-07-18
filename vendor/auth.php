@@ -15,7 +15,7 @@ if ($user['isAdmin'] == 1) {
         "lastName" => $user['lastName'],
         "surname" => $user['surname'],
     ];
-    
+
     header('Location: ../pages/admin.php');
 } else if (mysqli_num_rows($check_user) > 0) {
     $_SESSION['user'] = [

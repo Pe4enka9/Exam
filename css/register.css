@@ -102,7 +102,7 @@ input[type="submit"] {
     font-size: 13px;
 }
 
-.pass_block {
+.input_wrapper {
     position: relative;
 }
 
